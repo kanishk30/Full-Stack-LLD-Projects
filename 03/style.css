@@ -76,6 +76,18 @@ div > div > div > span > div {
 .c1 .c2 {
     color:red
 }
+
+/* attribute selector */
+input[value="select me"] {
+    background-color: red;
+    color: white
+}
+
+
+/* pseduo class */
+a:hover {
+    color: red
+}
  
 
  
