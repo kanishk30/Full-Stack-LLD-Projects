@@ -34,3 +34,29 @@ p {
 h1 {
     text-transform: capitalize;
 }
+
+/* descendant selector example  */
+
+div ol li {
+    color:red
+}
+/* <!-- descendant selector example ends */
+
+
+/* child selector starts using > (greater than) */
+
+div > h1 > span {
+    color: blue
+}
+
+div > span > h1 > span {
+    color:pink
+}
+
+/* 
+div  h1  span {
+    color: blue
+} 
+NOTE - this will apply blue olor to both (                I am direct son - (blue) & I m indirect son 
+ & 
+*/
