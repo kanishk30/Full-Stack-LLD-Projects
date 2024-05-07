@@ -60,3 +60,22 @@ div  h1  span {
 NOTE - this will apply blue olor to both (                I am direct son - (blue) & I m indirect son 
  & 
 */
+
+/* multiple selector */
+.m1.m2{ 
+    color: blue
+}
+
+/* div>span>.c2 {
+    color: red
+}
+div > div > div > span > div {
+    color: red
+} */
+
+.c1 .c2 {
+    color:red
+}
+ 
+
+ 
