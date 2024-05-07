@@ -1,0 +1,36 @@
+.pcm-badge {
+    color: red;
+    
+}
+
+.pcb-badge {
+    color: blue;
+}
+
+.commerce-badge {
+    color: rgb(55, 255, 0);
+}
+
+.arts-badge {
+    color: rgb(94, 69, 157);
+}
+
+p {
+    color: red;
+}
+
+.big-size {
+    font-size: 80px;
+}
+
+#iit-candidates {
+    text-transform: uppercase;
+}
+
+.smallcase {
+    text-transform: lowercase;
+}
+
+h1 {
+    text-transform: capitalize;
+}
