@@ -2,21 +2,33 @@
 background-color: orange;
 border: solid 1px black;
 height: 500px;
-width: auto;
+/* width: 500px; */
 /* using flex now */
 display: flex;
 /* justify prop */
 /* props - space-evenly , space-around , flex-start, flex-end , center */
-justify-content: space-between;
+justify-content: center;
 /* align items props - flex-start , flex-end , center , baseline, stretch */
-align-items: baseline;
+align-items: center;
 /* baseline - aligns wrt text present. */
+
+/* wrap */
+flex-wrap: wrap;
 }
 
 .box {
-    height: 100px;
-    width: 100px;
+    height: 200px;
+    width: 200px;
     background-color: cyan;
     margin: 10px;
+}
 
+.box1 {
+    /* order: 4; */
+}
+
+.box3 {
+    /* order: 2 */
+    /* flex-shrink: 2; */
+    flex-grow: 2;
 }
