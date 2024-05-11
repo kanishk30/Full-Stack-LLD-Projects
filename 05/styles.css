@@ -32,3 +32,29 @@ flex-wrap: wrap;
     /* flex-shrink: 2; */
     flex-grow: 2;
 }
+
+body {
+    font-size: 24px;
+    margin: 20px;
+    color: red;
+}
+
+@media only screen and (max-width: 600px) {
+body {
+    font-size: 16px;
+    color: green;
+}
+}
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+    body {
+        font-size: 12px;
+        color: blue;
+    }
+}
+
+@media only screen and (min-width: 901px) {
+    body {
+        font-size: 4px;
+        color: orange;
+    }
+}
