@@ -1,4 +1,4 @@
-* {
+/* * {
     padding: 0;
     margin: 0;
 }
@@ -13,34 +13,92 @@ body {
 .container {
     width: 1200px;
     margin: 100px auto;
-    padding: 10px;
+    padding: 10px; */
     /* display will be type of grid here. */
-    display: grid;
-    grid-template-columns: 1fr 2fr 3fr;
+    /* display: grid;
+    grid-template-columns: 1fr 2fr 3fr; */
     /* grid-template-columns: 100px 400px 100px; */
     /* grid-template-columns: 10% 90%; */
     /* more units can be used. */
 
-    gap: 20px 10px;
+    /* gap: 20px 10px; */
     /* row-gap: 20px */
     /* column-gap: 10px */
 
 
     /* for vertcal spacing ( height of the row ) */
-    grid-template-rows: 1fr 2fr 3fr;
+    /* grid-template-rows: 1fr 2fr 3fr; */
 
 
     /* repeat */
-    grid-template-columns: repeat(4, 100px);
+    /* grid-template-columns: repeat(4, 100px);
     grid-template-rows: repeat(4, 1fr);
     
 
-}
+} */
 
-.item {
+/* .item {
     background-color: dodgerblue;
     color: white;
     font-size: 20px;
     padding: 20px;
     border: 1px solid lightblue;
+} */
+
+
+/* item level css starts*/
+
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-size: 20px;
+    line-height: 1.5;
+    color: dodgerblue;
+    background-color: tomato;
+}
+
+.container{
+    width: 1200px;
+    margin: 100px auto;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 200px 200px 200px;
+
+}
+
+.item{
+    background-color: dodgerblue;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+    border: 1px solid rgb(114, 118, 119);
+}
+
+/* .item2 {
+    width: 100px;
+    height: 100px;
+} */
+
+/* nth pseudo selector */
+/* thisis genereoc css prop. */
+
+/* .item:nth-of-type(2n) {
+.item:nth-of-type(even) {
+.item:nth-of-type(odd) { */
+
+/* .item:nth-of-type(2) {
+    width: 100px;
+    height: 100px;
+    align-self: center;
+    justify-self: center;
+} */
+
+.item:nth-of-type(1) {
+    background-color: black;
+    grid-row: 1/3;
 }
