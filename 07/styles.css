@@ -40,3 +40,12 @@ ul#fruits li {
     score = 102
 */
 
+.parent {
+    color: blue;
+    font-size: 40px;
+}
+
+.child {
+    color: inherit;
+    font-size: inherit;
+}
