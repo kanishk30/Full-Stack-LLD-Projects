@@ -82,7 +82,7 @@ ul#fruits li {
 .bookshelf {
     position: relative;
     width: 300px;
-    height: 400px;
+    height: 4000px;
     border: solid 1px black;
     top: 200px;
     left: 200px;
@@ -107,9 +107,13 @@ ul#fruits li {
     height: 100px;
     text-align: center;
     /* absolute position */
-    position: absolute;
+    /* position: absolute;
     top: 30px;
-    left: 50px;
+    left: 50px; */
+
+    position: fixed;
+    right: 5px;
+    bottom: 4px;
 }
 .book4 {
     background-color: rgb(240, 94, 14);
