@@ -1,0 +1,42 @@
+
+
+/* #fruits {
+    color: red !important;
+} */
+
+/* .fav2 {
+    color: purple !important;
+} */
+/* 
+.favourite {
+    color: yellow !important;
+} */
+
+
+ul li {
+    color: red;
+}
+
+.favourite {
+    color: blue
+}
+
+ul#fruits li.favourite {
+    color: brown;
+}
+/* id = 1
+    class = 1
+    tag = 2
+    score = 112
+*/
+
+ul#fruits li {
+    color: pink;
+}
+/* 
+    id = 1
+    class = 0
+    tags = 2
+    score = 102
+*/
+
