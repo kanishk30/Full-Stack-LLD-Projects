@@ -48,4 +48,33 @@ ul#fruits li {
 .child {
     color: inherit;
     font-size: inherit;
+
+    position: static;
+    border: solid 1px black;
+    top: 100px; /* no affect*/
 }
+
+.relative-cls {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    border: solid 1px black;
+}
+
+.book1 {
+    position: relative;
+    width: 50px;
+    height: 100px;
+    background-color: cyan;
+    text-align: center;
+
+
+}
+
+.book2 {
+    position: relative;
+    top: 20px;
+    left: 30px;
+    background-color: blueviolet;
+}
+
