@@ -111,9 +111,14 @@ ul#fruits li {
     top: 30px;
     left: 50px; */
 
-    position: fixed;
+    /* fixed */
+    /* position: fixed;
     right: 5px;
-    bottom: 4px;
+    bottom: 4px; */
+
+    /* sticky */
+    position: sticky;
+    top: 0
 }
 .book4 {
     background-color: rgb(240, 94, 14);
