@@ -31,7 +31,7 @@ ul#fruits li.favourite {
 */
 
 ul#fruits li {
-    color: pink;
+    color: pink !important;
 }
 /* 
     id = 1
