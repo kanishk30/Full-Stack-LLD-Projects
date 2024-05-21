@@ -102,10 +102,54 @@
 
 // Functions
 
-function printName(name, gender) {
-    console.log(name, 'is', gender);
-}
+// function printName(name, gender) {
+//     console.log(name, 'is', gender);
+// }
 
-printName('Abhishek', 'Male');
-printName('Swapna', 'female');
-printName('Devanshu', 'male');
+// printName('Abhishek', 'Male');
+// printName('Swapna', 'female');
+// printName('Devanshu', 'male');
+
+
+// arrays
+
+// let arr = [1, 'hello', true, undefined, null, {}, [1,2,3,4], function(){}];
+// console.log(arr);
+
+// console.log(arr[2]) // true
+// console.log(arr[6]) // [1,2,3,4]
+
+// console.log(arr[6][0]) // 1
+
+// arr[0] = 100;
+
+// console.log(arr[0]) // 100
+
+// console.log(arr.length, 'length'); // no. of elements in teh array
+
+// array methods
+
+let cars = ['BMW', 'Mercedes'];
+// push = adds an element at the 'LAST/END' of an array
+cars.push('Audi');
+console.log(cars, 'after inserting Audi')
+
+// pop = deletes the 'LAST' element from an array
+
+const removedValue = cars.pop();
+console.log(removedValue)
+console.log(cars, 'after using pop method');
+
+//unshift
+// add an element to FIRST/BEGNNING of an array
+
+//shift
+// remove the FIRST / 0th element.
+
+cars.unshift('Ferrari');
+console.log(cars, 'after using unshift');
+
+const removedEl = cars.shift();
+console.log(removedEl);
+console.log(cars, 'after using shift');
+
