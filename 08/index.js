@@ -129,16 +129,16 @@
 
 // array methods
 
-let cars = ['BMW', 'Mercedes'];
-// push = adds an element at the 'LAST/END' of an array
-cars.push('Audi');
-console.log(cars, 'after inserting Audi')
+// let cars = ['BMW', 'Mercedes'];
+// // push = adds an element at the 'LAST/END' of an array
+// cars.push('Audi');
+// console.log(cars, 'after inserting Audi')
 
 // pop = deletes the 'LAST' element from an array
 
-const removedValue = cars.pop();
-console.log(removedValue)
-console.log(cars, 'after using pop method');
+// const removedValue = cars.pop();
+// console.log(removedValue)
+// console.log(cars, 'after using pop method');
 
 //unshift
 // add an element to FIRST/BEGNNING of an array
@@ -146,10 +146,75 @@ console.log(cars, 'after using pop method');
 //shift
 // remove the FIRST / 0th element.
 
-cars.unshift('Ferrari');
-console.log(cars, 'after using unshift');
+// cars.unshift('Ferrari');
+// console.log(cars, 'after using unshift');
 
-const removedEl = cars.shift();
-console.log(removedEl);
-console.log(cars, 'after using shift');
+// const removedEl = cars.shift();
+// console.log(removedEl);
+// console.log(cars, 'after using shift');
 
+
+
+// OBJECTS
+
+let person = {
+    name: 'Kanishk',
+    city: 'Bangalore'
+}
+
+console.log(person)
+console.log(person.name) // dot notation
+console.log(person["city"]) // bracket notation
+
+let captainAmerica = {
+    name: 'Steve Rogers',
+    age: 102,
+    alias: ['captain', 'leader', 'avenger', 'cap'],
+    sayHi: function() {
+        console.log('Hi from cap.')
+    },
+    address: {
+        country: 'USA',
+        city: {
+            name: 'Queens',
+            pincode: 123456
+        }
+    },
+    isDCRanger: false,
+    
+}
+
+console.log(captainAmerica)
+console.log(captainAmerica.alias[2]) // avenger
+console.log(captainAmerica.sayHi());
+console.log(captainAmerica.isDCRanger);
+console.log(captainAmerica.address.country)
+console.log(captainAmerica.address.city.name)
+/*
+
+{
+  name: 'Steve Rogers',
+  age: 102,
+  alias: [ 'captain', 'leader', 'avenger', 'cap' ],
+  sayHi: [Function: sayHi],
+  address: { country: 'USA', city: { name: 'Queens', pincode: 123456 } },
+  isDCRanger: false
+}
+avenger
+Hi from cap.
+undefined
+false
+USA
+Queens
+*/
+
+// add a property in object
+captainAmerica.movies = ['End game', 'Civil war'];
+
+console.log(captainAmerica, 'after adding movies property')
+
+// delete a property
+
+delete captainAmerica.age;
+
+console.log(captainAmerica, 'after deleting age')
