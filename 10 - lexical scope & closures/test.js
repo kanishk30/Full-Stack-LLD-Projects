@@ -79,24 +79,24 @@
 // closure
 
 
-function parent(){
-    var a = 10;
-    function child(){
-        var b = 20;
-        console.log(a)
+// function parent(){
+//     var a = 10;
+//     function child(){
+//         var b = 20;
+//         console.log(a)
 
-        function grandchild(){
-            console.log(a+b)
-        }
-        return grandchild
-    }
-    return child
-}
-let functionReceived = parent() // functionreceived is nothing but child only
-console.log(functionReceived)
+//         function grandchild(){
+//             console.log(a+b)
+//         }
+//         return grandchild
+//     }
+//     return child
+// }
+// let functionReceived = parent() // functionreceived is nothing but child only
+// console.log(functionReceived)
 
-let grandchildReceived = functionReceived() // grandchildReceived = child() ( invoking child) 
-grandchildReceived()
+// let grandchildReceived = functionReceived() // grandchildReceived = child() ( invoking child) 
+// grandchildReceived()
 // 
 
 /*
@@ -113,3 +113,33 @@ child() is grandChild function
 grandchildReceived() is onvoked in line 99.
 //  30
 */
+
+
+
+function testScope() {
+    let a =  20;
+    let b = 30;
+    let c = 100;
+    if(a<b) {
+        let c = 30;
+        console.log(c);
+        console.log(d);
+    } else {
+        let c = 1000;
+        console.log(c); // error - since let is block scoped.
+        var d = 40; // function scoped.
+    }
+    
+}
+
+let c = 1000;
+
+testScope();
+
+
+// if(true) {
+//     let a = 2;
+//     console.log(a);
+// }
+
+// console.log(a)
