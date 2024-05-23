@@ -52,7 +52,7 @@
 
 // function parent() {
 //     function child() {
-//         // console.log(a);
+//         console.log(a);
         
 //         function grandchild() {
 //             var a = 20;
@@ -64,3 +64,52 @@
 // }
 // parent();
 // outout = reference error.
+
+// function greet() {
+//     var msg = 'Happy holidays';
+//     sayHH();
+//     function sayHH() {
+//         console.log('inside HH' , msg)
+//     }
+// }
+// greet();
+// // console.log('outer', msg)
+
+
+// closure
+
+
+function parent(){
+    var a = 10;
+    function child(){
+        var b = 20;
+        console.log(a)
+
+        function grandchild(){
+            console.log(a+b)
+        }
+        return grandchild
+    }
+    return child
+}
+let functionReceived = parent() // functionreceived is nothing but child only
+console.log(functionReceived)
+
+let grandchildReceived = functionReceived() // grandchildReceived = child() ( invoking child) 
+grandchildReceived()
+// 
+
+/*
+parent() will be returning child function.
+functionReceived = child.
+
+// log - [Function:  child]
+
+grandchildReceived = child()
+
+// line 86 - log - 10 ( a is ten due to lexical env.)
+
+child() is grandChild function
+grandchildReceived() is onvoked in line 99.
+//  30
+*/
