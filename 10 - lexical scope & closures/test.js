@@ -116,30 +116,76 @@ grandchildReceived() is onvoked in line 99.
 
 
 
-function testScope() {
-    let a =  20;
-    let b = 30;
-    let c = 100;
-    if(a<b) {
-        let c = 30;
-        console.log(c);
-        console.log(d);
-    } else {
-        let c = 1000;
-        console.log(c); // error - since let is block scoped.
-        var d = 40; // function scoped.
-    }
+// function testScope() {
+//     let a =  20;
+//     let b = 30;
+//     let c = 100;
+//     if(a<b) {
+//         let c = 30;
+//         console.log(c);
+//         console.log(d);
+//     } else {
+//         let c = 1000;
+//         console.log(c); // error - since let is block scoped.
+//         var d = 40; // function scoped.
+//     }
     
-}
+// }
 
-let c = 1000;
+// let c = 1000;
 
-testScope();
+// // testScope();
 
 
 // if(true) {
-//     let a = 2;
-//     console.log(a);
+//     let c = 2;
+//     console.log(c);
 // }
 
 // console.log(a)
+
+
+// usecase for closures
+
+// module design pattern
+
+let myModule = (function() {
+    let privateVar = 'I am private';
+
+    return {
+        getVarFunc: function() {
+            return privateVar;
+        }
+    }
+})()
+
+console.log(myModule.getVarFunc())
+
+
+
+
+// Homework.
+
+/*
+Create a function called createCounter. This function should contain a local variable count initialized to 0 and return another function. The returned function, when called, should increment count by 1 and return the new value. Each time createCounter is called, it should create a new scope and count independently.
+*/
+
+function createCounter() {
+    // Your code here
+    let count = 0;
+
+    return function() {
+        // ....
+    }
+   }
+   
+   
+   const counter1 = createCounter();
+   const counter2 = createCounter();
+   
+   
+   console.log(counter1()); // Should return 1
+   console.log(counter1()); // Should return 2
+   console.log(counter2()); // Should return 1
+   console.log(counter2()); // Should return 2
+   
