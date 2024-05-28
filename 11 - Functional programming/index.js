@@ -55,43 +55,43 @@ for all the radiuses and return an array for that.
 */
 
 // pseudo code
-let myRadiusArr = [2,3,4,5,8];
+// let myRadiusArr = [2,3,4,5,8];
 
-function calculateArea(radiusArr) {
-    let result = [];
-    for(let i = 0; i< radiusArr.length; i++) {
-        let area = 3.14 * radiusArr[i] * radiusArr[i];
-        result.push(area);
-    }
-    return result;
-}
+// function calculateArea(radiusArr) {
+//     let result = [];
+//     for(let i = 0; i< radiusArr.length; i++) {
+//         let area = 3.14 * radiusArr[i] * radiusArr[i];
+//         result.push(area);
+//     }
+//     return result;
+// }
 
-function calculateCircumference(radiusArr) {
-    let result = [];
-    for(let i = 0; i< radiusArr.length; i++) {
-        let circumference = 2 * 3.14 * radiusArr[i];
-        result.push(circumference);
-    }
-    return result;
-}
+// function calculateCircumference(radiusArr) {
+//     let result = [];
+//     for(let i = 0; i< radiusArr.length; i++) {
+//         let circumference = 2 * 3.14 * radiusArr[i];
+//         result.push(circumference);
+//     }
+//     return result;
+// }
 
-function calculateDiameter(radiusArr) {
-    let result = [];
-    for(let i = 0; i< radiusArr.length; i++) {
-        let diameter = 2 * radiusArr[i];
-        result.push(diameter);
-    }
-    return result;
-}
+// function calculateDiameter(radiusArr) {
+//     let result = [];
+//     for(let i = 0; i< radiusArr.length; i++) {
+//         let diameter = 2 * radiusArr[i];
+//         result.push(diameter);
+//     }
+//     return result;
+// }
 
-const areas = calculateArea(myRadiusArr)
-console.log('Area: ', areas);
+// const areas = calculateArea(myRadiusArr)
+// console.log('Area: ', areas);
 
-const circumference = calculateCircumference(myRadiusArr)
-console.log('Circumference: ', circumference);
+// const circumference = calculateCircumference(myRadiusArr)
+// console.log('Circumference: ', circumference);
 
-const diameter = calculateDiameter(myRadiusArr)
-console.log('Diameter: ', diameter);
+// const diameter = calculateDiameter(myRadiusArr)
+// console.log('Diameter: ', diameter);
 
 // above is inefficent approach..
 // same structure 
@@ -101,34 +101,72 @@ console.log('Diameter: ', diameter);
 
 // HOF approach for above code.
 
-let radiusArrHOF = [2,3,4,5,8];
+// let radiusArrHOF = [2,3,4,5,8];
 
-function findArea(radius) {
-    return 3.14 * radius * radius;
+// function findArea(radius) {
+//     return 3.14 * radius * radius;
+// }
+
+// function findCircumference(radius) {
+//     return 2 * 3.14 * radius;
+// }
+
+// function findDiameter(radius) {
+//     return 2 * radius;
+// }
+
+// function calculate(radiusArr, logicFn) {
+//     let result = [];
+//     for(let i = 0; i< radiusArr.length; i++) {
+//         const output = logicFn(radiusArr[i])
+//         result.push(output);
+//     }
+//     return result;
+// }
+
+// const finalAreas = calculate(radiusArrHOF, findArea);
+// console.log('HOF Areas', finalAreas);
+// const finalCircumference = calculate(radiusArrHOF, findCircumference)
+// console.log('HOF Circum', finalCircumference);
+
+// const finalDiameter = calculate(radiusArrHOF, findDiameter)
+// console.log('HOF Diameter', finalDiameter);
+
+
+
+// array HOF
+
+// question
+// given an array of nos. , return square of nos in new array.
+
+// Approach 1
+let arr = [1,2,3];
+let squareArr = [];
+for(let i = 0; i< arr.length; i++){
+    squareArr.push(arr[i] * arr[i]);
 }
+// console.log('Approach1: ', squareArr);
 
-function findCircumference(radius) {
-    return 2 * 3.14 * radius;
-}
+// Approach 2 - Functional
 
-function findDiameter(radius) {
-    return 2 * radius;
-}
-
-function calculate(radiusArr, logicFn) {
-    let result = [];
-    for(let i = 0; i< radiusArr.length; i++) {
-        const output = logicFn(radiusArr[i])
-        result.push(output);
+let arr2 = [1,2,3];
+function squareArrFn(arr) {
+    let squareArr = [];
+    for(let i = 0; i< arr.length; i++){
+        squareArr.push(arr[i] * arr[i]);
     }
-    return result;
+    return squareArr;
 }
+let squareArr2 = squareArrFn(arr2);
+// console.log('Approach2: ',squareArr2);
 
-const finalAreas = calculate(radiusArrHOF, findArea);
-console.log('HOF Areas', finalAreas);
-const finalCircumference = calculate(radiusArrHOF, findCircumference)
-console.log('HOF Circum', finalCircumference);
+// Approach 3 - Recommended - .map operator
+// HOF - which will NOT CHANGE THE ORIGINAL ARRAY.
 
-const finalDiameter = calculate(radiusArrHOF, findDiameter)
-console.log('HOF Diameter', finalDiameter);
+let arr3 = [1,2,3];
+let squaredArr3 = arr3.map(function(element) {
+    console.log(element, '[element]')
+    return element * element
+});
+console.log('HOF - .map approach', squaredArr3)
 
