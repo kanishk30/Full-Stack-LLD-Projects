@@ -173,23 +173,23 @@ for all the radiuses and return an array for that.
 
 // ques2
 
-const transactionsInDollar = [1000, -200, 150];
-const inrToUsd = 80;
-// output = [80000, -16000, 12000];
+// const transactionsInDollar = [1000, -200, 150];
+// const inrToUsd = 80;
+// // output = [80000, -16000, 12000];
 
-const result = transactionsInDollar.map(function(el, index) {
-    console.log(el + ' is in position ' + index);
-    if(index === 0) {
-        return 100000000;
-    }
-    if(el < 0) {
-        return 'cannot convert'
-    }
-    return el * inrToUsd;
-    // result = [1000*80 = 8000, -16000, 12000]
-})
-console.log(transactionsInDollar, '[transactionsInDollar]');
-console.log(result, 'result');
+// const result = transactionsInDollar.map(function(el, index) {
+//     console.log(el + ' is in position ' + index);
+//     if(index === 0) {
+//         return 100000000;
+//     }
+//     if(el < 0) {
+//         return 'cannot convert'
+//     }
+//     return el * inrToUsd;
+//     // result = [1000*80 = 8000, -16000, 12000]
+// })
+// console.log(transactionsInDollar, '[transactionsInDollar]');
+// console.log(result, 'result');
 // 1000 is in position 0
 // -200 is in position 1
 // 150 is in position 2
@@ -197,3 +197,27 @@ console.log(result, 'result');
 // [ 100000000, 'cannot convert', 12000 ] result
 // since pure func (HOF), no chnge in original array
 
+
+// filter example
+
+let arr = [1,2,3,4,5,6,7,8,9,10];
+// return even elements for the array.
+
+let result = arr.filter(function(el, index) {
+    console.log(el, '[elements]')
+    let isEven = el % 2 === 0;
+    return isEven;
+});
+console.log(result);
+
+// ques 2
+// given an transaction array - return only poitive values.
+
+// I/P = [100, -40, 1000, -20, -30]
+//O/P = [100, 1000];
+let arrTransaction = [100, -40, 1000, -20, -30];
+let filteredResult = arrTransaction.filter(function(el) {
+    // let isPostive = el > 0;
+    return el > 0;
+})
+console.log(filteredResult)
