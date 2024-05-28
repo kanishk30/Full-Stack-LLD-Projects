@@ -92,3 +92,43 @@ console.log('Circumference: ', circumference);
 
 const diameter = calculateDiameter(myRadiusArr)
 console.log('Diameter: ', diameter);
+
+// above is inefficent approach..
+// same structure 
+// violation of DRY principle.
+// DRY - Do not Repeat Yourself
+
+
+// HOF approach for above code.
+
+let radiusArrHOF = [2,3,4,5,8];
+
+function findArea(radius) {
+    return 3.14 * radius * radius;
+}
+
+function findCircumference(radius) {
+    return 2 * 3.14 * radius;
+}
+
+function findDiameter(radius) {
+    return 2 * radius;
+}
+
+function calculate(radiusArr, logicFn) {
+    let result = [];
+    for(let i = 0; i< radiusArr.length; i++) {
+        const output = logicFn(radiusArr[i])
+        result.push(output);
+    }
+    return result;
+}
+
+const finalAreas = calculate(radiusArrHOF, findArea);
+console.log('HOF Areas', finalAreas);
+const finalCircumference = calculate(radiusArrHOF, findCircumference)
+console.log('HOF Circum', finalCircumference);
+
+const finalDiameter = calculate(radiusArrHOF, findDiameter)
+console.log('HOF Diameter', finalDiameter);
+
