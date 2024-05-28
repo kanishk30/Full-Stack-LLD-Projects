@@ -20,24 +20,75 @@
 // printName(printLastName, printJob); // Kanishk Job - Engineer  Agrawal
 
 
-function sum(a,b) {
-    return a + b;
+
+// function sum(a,b) {
+//     return a + b;
+// }
+
+// console.log(sum(1,2));
+// console.log(sum(1,2));
+// console.log(sum(1,2));
+// console.log(sum(1,2));
+// console.log(sum(1,2));
+// console.log(sum(1,2));
+// console.log(sum(1,2));
+// console.log(sum(1,2));
+
+
+// var c = 0;
+
+// function impureSum(a, b) {
+//     return a + b + c++;
+// }
+// console.log('Impure sum - ', impureSum(2,3))
+// console.log('Impure sum - ', impureSum(2,3));
+
+
+// coding question
+
+/*
+we are given an array, which has radius for different circles, we need to find
+- area
+- circumference
+- diameter
+for all the radiuses and return an array for that.
+*/
+
+// pseudo code
+let myRadiusArr = [2,3,4,5,8];
+
+function calculateArea(radiusArr) {
+    let result = [];
+    for(let i = 0; i< radiusArr.length; i++) {
+        let area = 3.14 * radiusArr[i] * radiusArr[i];
+        result.push(area);
+    }
+    return result;
 }
 
-console.log(sum(1,2));
-console.log(sum(1,2));
-console.log(sum(1,2));
-console.log(sum(1,2));
-console.log(sum(1,2));
-console.log(sum(1,2));
-console.log(sum(1,2));
-console.log(sum(1,2));
-
-
-var c = 0;
-
-function impureSum(a, b) {
-    return a + b + c++;
+function calculateCircumference(radiusArr) {
+    let result = [];
+    for(let i = 0; i< radiusArr.length; i++) {
+        let circumference = 2 * 3.14 * radiusArr[i];
+        result.push(circumference);
+    }
+    return result;
 }
-console.log('Impure sum - ', impureSum(2,3))
-console.log('Impure sum - ', impureSum(2,3))
+
+function calculateDiameter(radiusArr) {
+    let result = [];
+    for(let i = 0; i< radiusArr.length; i++) {
+        let diameter = 2 * radiusArr[i];
+        result.push(diameter);
+    }
+    return result;
+}
+
+const areas = calculateArea(myRadiusArr)
+console.log('Area: ', areas);
+
+const circumference = calculateCircumference(myRadiusArr)
+console.log('Circumference: ', circumference);
+
+const diameter = calculateDiameter(myRadiusArr)
+console.log('Diameter: ', diameter);
