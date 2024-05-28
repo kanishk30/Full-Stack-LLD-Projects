@@ -140,33 +140,60 @@ for all the radiuses and return an array for that.
 // given an array of nos. , return square of nos in new array.
 
 // Approach 1
-let arr = [1,2,3];
-let squareArr = [];
-for(let i = 0; i< arr.length; i++){
-    squareArr.push(arr[i] * arr[i]);
-}
+// let arr = [1,2,3];
+// let squareArr = [];
+// for(let i = 0; i< arr.length; i++){
+//     squareArr.push(arr[i] * arr[i]);
+// }
 // console.log('Approach1: ', squareArr);
 
-// Approach 2 - Functional
+// // Approach 2 - Functional
 
-let arr2 = [1,2,3];
-function squareArrFn(arr) {
-    let squareArr = [];
-    for(let i = 0; i< arr.length; i++){
-        squareArr.push(arr[i] * arr[i]);
-    }
-    return squareArr;
-}
-let squareArr2 = squareArrFn(arr2);
+// let arr2 = [1,2,3];
+// function squareArrFn(arr) {
+//     let squareArr = [];
+//     for(let i = 0; i< arr.length; i++){
+//         squareArr.push(arr[i] * arr[i]);
+//     }
+//     return squareArr;
+// }
+// let squareArr2 = squareArrFn(arr2);
 // console.log('Approach2: ',squareArr2);
 
-// Approach 3 - Recommended - .map operator
-// HOF - which will NOT CHANGE THE ORIGINAL ARRAY.
+// // Approach 3 - Recommended - .map operator
+// // HOF - which will NOT CHANGE THE ORIGINAL ARRAY.
 
-let arr3 = [1,2,3];
-let squaredArr3 = arr3.map(function(element) {
-    console.log(element, '[element]')
-    return element * element
-});
-console.log('HOF - .map approach', squaredArr3)
+// let arr3 = [1,2,3];
+// let squaredArr3 = arr3.map(function(element) {
+//     console.log(element, '[element]')
+//     return element * element
+// });
+// console.log('HOF - .map approach', squaredArr3)
+
+
+// ques2
+
+const transactionsInDollar = [1000, -200, 150];
+const inrToUsd = 80;
+// output = [80000, -16000, 12000];
+
+const result = transactionsInDollar.map(function(el, index) {
+    console.log(el + ' is in position ' + index);
+    if(index === 0) {
+        return 100000000;
+    }
+    if(el < 0) {
+        return 'cannot convert'
+    }
+    return el * inrToUsd;
+    // result = [1000*80 = 8000, -16000, 12000]
+})
+console.log(transactionsInDollar, '[transactionsInDollar]');
+console.log(result, 'result');
+// 1000 is in position 0
+// -200 is in position 1
+// 150 is in position 2
+// [ 1000, -200, 150 ] [transactionsInDollar]
+// [ 100000000, 'cannot convert', 12000 ] result
+// since pure func (HOF), no chnge in original array
 
