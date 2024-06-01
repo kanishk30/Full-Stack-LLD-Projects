@@ -91,16 +91,56 @@ let myPromise = new Promise(function(resolve, reject) {
 // 2. CONSUMING THE PROMISE
 // .then() .catch() .finally() [less used]
 
-myPromise.then(function(result) {
-    console.log('Success (then):', result);
-})
-.catch(function (err) {
-    console.log('Error(catch):', err)
-})
-.finally(function() {
-    console.log('I will always be called')
-})
+// myPromise.then(function(result) {
+//     console.log('Success (then):', result);
+// })
+// .catch(function (err) {
+//     console.log('Error(catch):', err)
+// })
+// .finally(function() {
+//     console.log('I will always be called')
+// })
    
 
 
 // CHAINING
+
+const cleanRoom = function() {
+    return new Promise(function(resolve1, reject1) {
+        resolve1('I cleaned the room');
+        // reject1('I didnt clean the room');
+    })
+}
+
+const finishFood = function(msg) {
+    // msg = I cleaned the room
+    return new Promise(function(resolve1, reject1) {
+        resolve1(msg + ' I finished the food');
+        // 'I cleaned the room  I finished the food'
+        // reject1('I dont like the food.');
+    })
+}
+
+const getChocolate = function(msg) {
+    return new Promise(function(resolve1, reject1) {
+        resolve1(msg + ' Good work! Now you can have your chocolate');
+        // reject1('No chocolate for u');
+    })
+}
+
+cleanRoom()
+// resolvedValueFromPromise = returned from clenroom prom.
+.then(function(resolvedValueFromPromise) {
+    console.log(resolvedValueFromPromise, '[then in cleanroom]')
+    return finishFood(resolvedValueFromPromise);
+})
+.then(function(result) {
+    console.log(result, '[then finish food]')
+    return getChocolate(result);
+})
+.then(function (resolvedValue) {
+    console.log(resolvedValue)
+})
+.finally(function() {
+    console.log('everythng done')
+})
