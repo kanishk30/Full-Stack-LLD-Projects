@@ -56,3 +56,28 @@ promiseReadFile3.then(handleFileSuccess);
 promiseReadFile1.catch(handleError);
 promiseReadFile2.catch(handleError);
 promiseReadFile3.catch(handleError);
+
+
+// from jsv demo
+
+// setTimeout(function a() {
+//   console.log('setTimeout a')
+// }, 0);
+
+
+// Promise.resolve().then(function b() {
+//   console.log('promise b')
+// });
+
+
+let prom = new Promise(function (resolve, reject) {resolve(1)})
+.then(function (result = 1) { return result * 2 })
+.then(function (result = 2) { return result * 3 })
+.then((result = 6) => {
+console.log(result = 6);
+return result / 2;
+});
+
+prom.then(function(res) {
+  console.log(res) // 3
+})
