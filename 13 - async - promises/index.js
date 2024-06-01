@@ -73,20 +73,20 @@
 
 
 // 1. CREATION OF PROMISE
-let myPromise = new Promise(function(resolve, reject) {
-// resolve - function when task is successful
-// reject - function when task is failed(rejected)
+// let myPromise = new Promise(function(resolve, reject) {
+// // resolve - function when task is successful
+// // reject - function when task is failed(rejected)
 
-    setTimeout(() => {
-        const isHeads = Math.random() > 0.5;
-        if(isHeads) {
-            resolve('I win. It is Heads')
-        } else {
-            reject('Lost. Tails')
-        }
+//     setTimeout(() => {
+//         const isHeads = Math.random() > 0.5;
+//         if(isHeads) {
+//             resolve('I win. It is Heads')
+//         } else {
+//             reject('Lost. Tails')
+//         }
 
-    }, 500)
-})
+//     }, 500)
+// })
 
 // 2. CONSUMING THE PROMISE
 // .then() .catch() .finally() [less used]
@@ -115,16 +115,16 @@ const cleanRoom = function() {
 const finishFood = function(msg) {
     // msg = I cleaned the room
     return new Promise(function(resolve1, reject1) {
-        resolve1(msg + ' I finished the food');
+        // resolve1(msg + ' I finished the food');
         // 'I cleaned the room  I finished the food'
-        // reject1('I dont like the food.');
+        reject1('I dont like the food.');
     })
 }
 
 const getChocolate = function(msg) {
     return new Promise(function(resolve1, reject1) {
-        resolve1(msg + ' Good work! Now you can have your chocolate');
-        // reject1('No chocolate for u');
+        // resolve1(msg + ' Good work! Now you can have your chocolate');
+        reject1('No chocolate for u');
     })
 }
 
@@ -134,12 +134,23 @@ cleanRoom()
     console.log(resolvedValueFromPromise, '[then in cleanroom]')
     return finishFood(resolvedValueFromPromise);
 })
+.catch(function(err) {
+    console.log(err, '[error - finishFood ]')
+})
+
 .then(function(result) {
     console.log(result, '[then finish food]')
     return getChocolate(result);
 })
+.catch(function(err) {
+    console.log(err, '[error - chocolate]')
+})
+
 .then(function (resolvedValue) {
     console.log(resolvedValue)
+})
+.catch(function(err) {
+    console.log(err, '[error - chocolate error]')
 })
 .finally(function() {
     console.log('everythng done')
