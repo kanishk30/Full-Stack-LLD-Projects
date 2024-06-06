@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body id="body-id" class="body-cls">
+ 
+    <!-- 
+        1. select the element 
+        where event needs to be fired.
+        2. attach an event
+        3. manipulate(add, remove, modify) the DOM
+     -->
+
+    <button id="btn-1">Click me & append hello</button>
+    <button>Dont Click me  </button>
+
+    <script>
+        // create a button, 
+        // on clicking of a button - append "Hello" to the page
+
+        const btnEl = document.getElementById('btn-1');
+        console.log(btnEl, ': Button element');
+
+        btnEl.addEventListener('click', function() {
+            const divElem = document.createElement('div');
+        // add text "hello" to my div.
+        
+        
+
+        // 1. using innerText / innerHTML
+        // divElem.innerText = 'Hello';
+        
+        // 2. document.createTextNode
+        const divText = document.createTextNode('Hello node');
+        divElem.appendChild(divText);
+
+
+    
+        const bodyElem = document.querySelector('body');
+        // const bodyElemById = document.querySelector('#body-id');
+        // const bodyElemByCls = document.querySelector('.body-cls');
+        
+        // console.log(bodyElem)
+        // console.log(bodyElemById)
+        // console.log(bodyElemByCls)
+
+        bodyElem.appendChild(divElem);
+        });
+
+        
+
+
+
+
+
+
+
+
+        // removeEventListener - to remove the attached event.
+
+    </script>
+</body>
+</html>
