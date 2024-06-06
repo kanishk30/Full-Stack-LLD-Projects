@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div-id" class="content visible">
+        Hello
+    </div>
+    <script>
+        const divEl = document.querySelector('#div-id');
+
+        divEl.classList.add('highlight');
+        console.log(divEl);
+
+        divEl.classList.remove('visible');
+
+        console.log(divEl, 'visible rmeoved');
+
+        if(divEl.classList.contains('visible')) {
+            console.log('has highlight class')
+        } else {
+            console.log('not have')
+        }
+    </script>
+</body>
+</html>
