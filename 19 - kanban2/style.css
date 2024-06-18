@@ -1,0 +1,160 @@
+* {
+    box-sizing: border-box;
+}
+
+/* reset css */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.toolbox-cont {
+    height: 5rem;
+    background-color: #4B4B4B;
+    display: flex;
+    align-items: center;
+}
+
+.toolbox-cont > * {
+    margin-left: 4rem;
+}
+
+/* priority colors container */
+
+.toolbox-priority-cont {
+    display: flex;
+    height: 3rem;
+    width: 20rem;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.toolbox-priority-cont > *:hover {
+    background-color: #485460;
+}
+
+.color {
+    height: 1.5rem;
+    width: 3rem;
+}
+.lightpink {
+    background-color: lightpink;
+}
+
+.lightgreen {
+    background-color: lightgreen;
+}
+
+.lightblue {
+    background-color: lightblue;
+}
+
+.black {
+    background-color: black;
+}
+
+/* action btn */
+
+.action-btn-cont {
+    display: flex;
+    background-color: #3d3d3d;
+    height: 3rem;
+    width: 8rem;
+}
+
+.action-btn-cont > * {
+    display: flex;
+    color: white;
+    align-items: center;
+    width: 50%;
+    justify-content: center;
+    font-size: 1.75rem;
+}
+
+.add-btn:hover, .remove-btn:hover {
+    background-color: #4BB543;
+    transition: .3s ease-in;
+}
+
+/* tickets classes */
+
+.main-cont {
+    /* grid or flex */
+
+    display: flex;
+    padding: 2rem;
+    flex-wrap: wrap;
+}
+
+.ticket-cont {
+    height: 12rem;
+    width: 16rem;
+    background-color: coral;
+    /* appraoch 1 for lock */
+    position: relative;
+}
+
+.ticket-color {
+    height: 1rem;
+    /* hardcode */
+    background-color: cyan;
+}
+
+.ticket-id {
+    background-color: yellow;
+}
+
+.ticket-lock {
+    /* approach 1 */
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+
+    /* approach2 */
+    /* display: flex;
+    justify-content: flex-end;
+    margin-top: 110px;
+    margin-right: 10px;
+    font-size: 1.5rem; */
+}
+
+.modal-cont {
+    height: 50vh;
+    width: 50vw;
+    display: flex;
+    background-color: khaki;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+}
+
+.text-area-cont {
+    height: 100%;
+    width: 75%;
+    resize: none;
+    outline: none;
+    background-color: grey;
+    font-size: 2rem;
+    color: black
+}
+
+.priority-colors-container {
+    height: 100%;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    background-color: #4b4b4b;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.priority-color {
+    height: 3rem;
+    width: 6rem;
+}
+
+.active {
+    border: solid 8px orange;
+}
+
+
