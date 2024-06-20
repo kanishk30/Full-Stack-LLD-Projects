@@ -4,6 +4,8 @@ const mainCont = document.querySelector('.main-cont');
 const textArea = document.querySelector('.text-area-cont');
 const allPriorityColors = document.querySelectorAll('.priority-color');
 const removeBtn = document.querySelector('.remove-btn');
+const toolboxColors = document.querySelectorAll('.color');
+
 
 let modalPriorityColor = 'black';
 let addTaskFlag = false;
@@ -79,6 +81,7 @@ function createTicket(modalPriorityColor, textValue, ticketID) {
     handleLock(ticketCont);
     handleRemoval(ticketCont);
     handleColor(ticketCont);
+    handleFilter();
 
 }
 
@@ -171,6 +174,35 @@ function handleColor(ticket) {
 
     })
 }
+
+function handleFilter() {
+    toolboxColors.forEach(function(colorElem) {
+        colorElem.addEventListener('click', function() {
+            const selectedColor = colorElem.classList[0];
+            const allTickets = document.querySelectorAll('.ticket-cont');
+            allTickets.forEach(function(ticket) {
+                const ticketColorBand = ticket.querySelector('.ticket-color');
+                const ticketColor = ticketColorBand.style.backgroundColor;
+                if(ticketColor === selectedColor) {
+                    // filter matches
+                    ticket.style.display = 'block';
+                } else {
+                    // hide the ticket
+                    ticket.style.display = 'none';
+                }
+            })
+    
+        })
+
+        colorElem.addEventListener('dblclick', function() {
+            const allTickets = document.querySelectorAll('.ticket-cont');
+            allTickets.forEach(function(ticket) {
+                ticket.style.display = 'block';
+            })
+        })
+    })
+}
+
 
 
 
