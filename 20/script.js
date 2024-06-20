@@ -16,6 +16,17 @@ const lockOpen = 'fa-lock-open';
 
 const colors = ['lightpink', 'lightgreen', 'lightblue', 'black'];
 
+// LS impl.
+
+const ticketArr = JSON.parse(localStorage.getItem('tickets')) || [];
+
+// in the keydown event SHIFT
+// ticketArr.push({
+//     ticketID,
+//     taskContent,
+//     ticketColor: modalPriorityColor
+// })
+
 
 addBtn.addEventListener('click', function(e) {
     addTaskFlag = !addTaskFlag;
@@ -46,8 +57,6 @@ removeBtn.addEventListener('click', function() {
 })
 
 function handleRemoval(ticketElem) {
-    const allTickets = document.querySelectorAll('.ticket-cont');
-
     ticketElem.addEventListener('click', function() {
         
         if(removeTaskFlag) {
@@ -57,11 +66,9 @@ function handleRemoval(ticketElem) {
 }
 const allTickets = document.querySelectorAll('.ticket-cont');
 
-allTickets.forEach(function(ticketNode) {
-    console.log('all ticket event attach')
-    handleRemoval(ticketNode)
-})
+ 
 
+// crateticket ==> addding tickets to DOM.
 function createTicket(modalPriorityColor, textValue, ticketID) {
     const ticketCont = document.createElement('div');
     // ticketCont.classList.add('ticket-cont');
@@ -83,6 +90,13 @@ function createTicket(modalPriorityColor, textValue, ticketID) {
     handleColor(ticketCont);
     handleFilter();
 
+    // LS changes
+
+    // ticketArr.push({
+    //     ticketID,
+    //     textValue,
+    //     modalPriorityColor
+    // })
 }
 
 modalCont.addEventListener('keydown', function(e) {
@@ -97,6 +111,13 @@ modalCont.addEventListener('keydown', function(e) {
         createTicket(modalPriorityColor, textArea.value, tktId);
         modalCont.style.display = 'none';
         textArea.value = ''
+
+        ticketArr.push({
+            ticketId: tktId,
+            taskContent: textArea.value,
+            ticketColor: modalPriorityColor
+        });
+        updateLocalStorage();
 
     } 
 })
@@ -204,6 +225,26 @@ function handleFilter() {
 }
 
 
+
+
+
+
+// create an init() function. for every reload to fetch from LS ( in starting )
+
+function init() {
+    if(localStorage.getItem('tickets')) {
+        ticketArr.forEach(function(ticket) {
+            // modalPriorityColor, textArea.value, tktId
+            createTicket(ticket.ticketColor, ticket.taskContent, ticket.ticketID)
+        })
+    }
+}
+
+init();
+
+function updateLocalStorage() {
+    localStorage.setItem('tickets', JSON.stringify(ticketArr));
+}
 
 
 
