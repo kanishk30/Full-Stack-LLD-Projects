@@ -12,6 +12,8 @@ let removeTaskFlag = false;
 const lockClose = 'fa-lock';
 const lockOpen = 'fa-lock-open';
 
+const colors = ['lightpink', 'lightgreen', 'lightblue', 'black'];
+
 
 addBtn.addEventListener('click', function(e) {
     addTaskFlag = !addTaskFlag;
@@ -45,7 +47,7 @@ function handleRemoval(ticketElem) {
     const allTickets = document.querySelectorAll('.ticket-cont');
 
     ticketElem.addEventListener('click', function() {
-        console.log(ticketElem, '[handleRemoval]')
+        
         if(removeTaskFlag) {
             ticketElem.remove();
         }
@@ -76,12 +78,12 @@ function createTicket(modalPriorityColor, textValue, ticketID) {
     mainCont.appendChild(ticketCont);
     handleLock(ticketCont);
     handleRemoval(ticketCont);
+    handleColor(ticketCont);
 
 }
 
 modalCont.addEventListener('keydown', function(e) {
     const key = e.key;
-    console.log(textArea.value)
     if(key === 'Shift') {
 
         // const tktId = shortid();
@@ -141,6 +143,34 @@ function handleLock(ticket) {
     })
 }
 
+function handleColor(ticket) {
+    const ticketColorBand = ticket.querySelector('.ticket-color');
+
+    ticketColorBand.addEventListener('click', function() {
+        console.log(ticketColorBand)
+        let currentColor = ticketColorBand.style.backgroundColor;
+        console.log('currentColor: ',currentColor); // lightgreen
+        // find the index of a given element in an array. = 1
+        // const colors = ['lightpink', 'lightgreen', 'lightblue', 'black'];
+
+        let currentColorIndex = colors.findIndex(function(color) {
+            return color === currentColor;
+        });
+        console.log('currentColorIndex ', currentColorIndex)
+        currentColorIndex++;
+        console.log('After increment currentColorIndex ', currentColorIndex)
+        
+        // to avoid overflow.
+        const newTktColorIdx = currentColorIndex % colors.length; // 1%4 = 1 ; 4%4 = 0
+        console.log('newTktColorIdx', newTktColorIdx)
+        
+        const newTicketColor = colors[newTktColorIdx];
+        console.log('newTicketColor', newTicketColor);
+
+        ticketColorBand.style.backgroundColor = newTicketColor;
+
+    })
+}
 
 
 
