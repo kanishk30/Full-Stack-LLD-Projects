@@ -148,8 +148,13 @@ function handleLock(ticket) {
     const ticketLockIcon = ticketNode.children[0]; // <i>...</i>
     const ticketTaskArea = ticket.querySelector('.task-area');
 
+    const ticketId = ticket.querySelector('.ticket-id').innerText;
+
     ticketLockIcon.addEventListener('click', function() {
         console.log('lock selected');
+        
+        const ticketArrIndex = getTicketArrIndex(ticketId);
+        console.log(ticketArrIndex, '[ticketArrIndex]');
 
         if(ticketLockIcon.classList.contains(lockClose)) {
             // add lockopen class
@@ -167,14 +172,22 @@ function handleLock(ticket) {
             ticketLockIcon.classList.add(lockClose);
             ticketTaskArea.setAttribute('contenteditable', 'false')
         }
+
+        ticketArr[ticketArrIndex].taskContent = ticketTaskArea.innerText;
+        updateLocalStorage();
     })
 }
 
 function handleColor(ticket) {
     const ticketColorBand = ticket.querySelector('.ticket-color');
+    
+    const ticketId = ticket.querySelector('.ticket-id').innerText;
 
     ticketColorBand.addEventListener('click', function() {
-        console.log(ticketColorBand)
+        console.log(ticketColorBand);
+
+        const ticketArrIndex = getTicketArrIndex(ticketId);
+
         let currentColor = ticketColorBand.style.backgroundColor;
         console.log('currentColor: ',currentColor); // lightgreen
         // find the index of a given element in an array. = 1
@@ -196,6 +209,8 @@ function handleColor(ticket) {
 
         ticketColorBand.style.backgroundColor = newTicketColor;
 
+        ticketArr[ticketArrIndex].ticketColor = newTicketColor;
+        updateLocalStorage();
     })
 }
 
@@ -247,6 +262,13 @@ function updateLocalStorage() {
 }
 
 
+function getTicketArrIndex(id) {
+    // give me index from the array which is getting affected. 
+    let foundIndex = ticketArr.findIndex(function(ticket) {
+        return id === ticket.ticketId
+    })
+    return foundIndex;
+}
 
 
 
