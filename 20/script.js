@@ -85,6 +85,8 @@ function createTicket(modalPriorityColor, textValue, ticketID) {
     `
 
     mainCont.appendChild(ticketCont);
+
+    // attaching events.
     handleLock(ticketCont);
     handleRemoval(ticketCont);
     handleColor(ticketCont);
@@ -110,14 +112,15 @@ modalCont.addEventListener('keydown', function(e) {
 
         createTicket(modalPriorityColor, textArea.value, tktId);
         modalCont.style.display = 'none';
-        textArea.value = ''
-
+    
         ticketArr.push({
             ticketId: tktId,
             taskContent: textArea.value,
             ticketColor: modalPriorityColor
         });
         updateLocalStorage();
+
+        textArea.value = ''
 
     } 
 })
@@ -224,18 +227,14 @@ function handleFilter() {
     })
 }
 
-
-
-
-
-
 // create an init() function. for every reload to fetch from LS ( in starting )
 
 function init() {
     if(localStorage.getItem('tickets')) {
         ticketArr.forEach(function(ticket) {
             // modalPriorityColor, textArea.value, tktId
-            createTicket(ticket.ticketColor, ticket.taskContent, ticket.ticketID)
+            console.log(ticket, 'from LS')
+            createTicket(ticket.ticketColor, ticket.taskContent, ticket.ticketId)
         })
     }
 }
@@ -243,6 +242,7 @@ function init() {
 init();
 
 function updateLocalStorage() {
+    // only set the LS from your local array. ( ticketsArr )
     localStorage.setItem('tickets', JSON.stringify(ticketArr));
 }
 
