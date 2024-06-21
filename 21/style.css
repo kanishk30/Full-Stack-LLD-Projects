@@ -1,0 +1,17 @@
+#grandparent {
+    background-color: red;
+    height: 100px;
+    width: 100px;
+}
+
+#parent {
+    background-color: green;
+    height: 75px;
+    width: 75px;
+}
+
+#child {
+    background-color: blue;
+    height: 50px;
+    width: 50px;
+}
