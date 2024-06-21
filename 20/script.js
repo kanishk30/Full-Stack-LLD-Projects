@@ -57,10 +57,18 @@ removeBtn.addEventListener('click', function() {
 })
 
 function handleRemoval(ticketElem) {
+    const ticketId = ticketElem.querySelector('.ticket-id').innerText;
+
     ticketElem.addEventListener('click', function() {
         
         if(removeTaskFlag) {
             ticketElem.remove();
+
+            // now have to remove from LS also.
+            const ticketArrIndex = getTicketArrIndex(ticketId);
+
+            ticketArr.splice(ticketArrIndex, 1);
+            updateLocalStorage();
         }
     })
 }
@@ -273,3 +281,19 @@ function getTicketArrIndex(id) {
 
 
 // createTicket();
+
+
+
+
+// delete the element from an array.
+
+/*
+1. arr.pop()  >> removes element frm the end.
+2. arr.shift() >> removes element from the start.
+
+to delete the element from a given index?
+
+3. arr.splice(index, deletecount, ...element-to-be-added)
+
+
+**/
