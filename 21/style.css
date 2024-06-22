@@ -16,8 +16,8 @@
     width: 50px;
 } */
 
-
-body {
+/* counter */
+/* body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -44,4 +44,18 @@ body {
   
   .btn:hover {
     background-color: #2980b9;
+  } */
+
+
+  /* star */
+
+  .star {
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease-in;
   }
+
+  .star.filled {
+    color: gold;
+  }
+

@@ -35,7 +35,9 @@
 
 
 // counter script starts
-
+/**
+ * 
+ 
 
 const decrementBtn = document.querySelector('#decrement');
 const incrementBtn = document.querySelector('#increment');
@@ -58,4 +60,40 @@ resetBtn.addEventListener('click', function() {
     count = 0;
     countDisplay.textContent = count;
 })
+
+*/
+
+// STAR RATING Component
+
+
+// get all star elements.
+const stars = document.querySelectorAll('.star')
+
+// get rating part
+const rating = document.querySelector('#rating');
+
+stars.forEach(function(starElem) {
+    starElem.addEventListener('click', function() {
+        console.log(starElem, 'clicked')
+        const value = starElem.getAttribute('data-value');
+        console.log(value);
+        updateRating(value);
+    })
+})
+
+// css changes & HTML updation.
+function updateRating(starValueSelected) {
+    
+    stars.forEach(function(starElem) {
+        const starDataValue = starElem.getAttribute('data-value');
+
+        // toggle the filled class based on star's data value
+        // is less or equal to the star selected value.
+
+        starElem.classList.toggle('filled', starDataValue <= starValueSelected)
+    });
+
+    rating.textContent = starValueSelected;
+    
+}
 
