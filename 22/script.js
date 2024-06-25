@@ -1,3 +1,4 @@
+/*
 const categoriesContainer = document.querySelector('#categories');
 
 categoriesContainer.addEventListener('click', function(e) {
@@ -20,5 +21,21 @@ categoriesContainer.addEventListener('click', function(e) {
         console.log('categoryText',categoryText);
 
         console.log(`Clicked on ${productTitle} in the ${categoryText} category. `)
+    }
+})
+
+*/
+
+const colorPalette = document.getElementById('color-palette');
+
+colorPalette.addEventListener('click', function(e) {
+    const clickedElement = e.target;
+
+    // always check selexted element is the expected one or not.
+    console.log(clickedElement)
+    if(clickedElement.classList.contains('color-box')) {
+        const color = clickedElement.style.backgroundColor;
+
+        document.body.style.backgroundColor = color;
     }
 })
