@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="input_field" type="text">
+</body>
+
+<script>
+    const inputField = document.querySelector('#input_field');
+    function processInput() {
+        console.log('Processing input...')
+    }
+
+    inputField.addEventListener('keydown', function() {
+        // processInput();
+        debouncedProcessInput()
+    });
+
+    const debouncedProcessInput = myDebounceFunc(processInput, 300);
+
+
+    function myDebounceFunc(func, wait) {
+        
+        // after a delay. 
+        // after last click happened. ( some timer needs to be maintained. )
+        // func();
+        
+        let timeout;
+        return function executedFunction() {
+            const laterFunc = function() {
+                clearTimeout(timeout)
+                func();
+            };
+            clearTimeout(timeout);
+
+            timeout = setTimeout(laterFunc, wait);
+
+        }
+    }
+
+</script>
+</html>
