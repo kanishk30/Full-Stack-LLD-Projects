@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Throttle</title>
+    <style>
+        body, html {
+            height: 3000px;
+        }
+
+        .status {
+            background-color: rgb(0,0,0,0.7);
+            color: white;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="status">
+        Scroll position:
+        <span id="scrollPosition">0</span>
+    </div>
+
+
+    <script>
+        let lastScrollTime = 0;
+        let throttledInterval = 500;
+
+        function updateScrollPosition() {
+            let now = new Date().getTime();
+
+            // if now - lastscrollTime > throttleInterval >>>> fire event. else dont
+
+            // throttle interval = 500ms
+
+            // last = t1 (07:59:59:000)
+            // now = 07:59:59:501
+            // 100ms elapsed.. 
+
+            if(now - lastScrollTime > throttledInterval) {
+                const positionElem = document.querySelector('#scrollPosition');
+                positionElem.textContent = window.scrollY;
+                console.log('Scrolled: ', window.scrollY);
+                
+                lastScrollTime = now;
+            }
+
+
+
+
+        }
+
+        window.addEventListener('scroll', updateScrollPosition)
+        // function() {
+        //     const positionElem = document.querySelector('#scrollPosition');
+        //     positionElem.textContent = window.scrollY;
+
+        //     console.log('Scrolled: ', window.scrollY);
+        //     }
+        
+    </script>
+</body>
+
+ 
+</html>
