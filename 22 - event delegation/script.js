@@ -99,8 +99,8 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.innerText = 'Reply';
         replyElement.appendChild(btn);
         const replyInput = document.createElement('textarea');
-        btn.className = 'replyBtn';
-        btn.placeholder = 'Write a Reply....';
+        replyInput.className = 'replyBtn';
+        replyInput.placeholder = 'Write a Reply....';
         replyElement.appendChild(replyInput);
         
         parentComment.appendChild(replyElement)
