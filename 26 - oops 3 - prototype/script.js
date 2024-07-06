@@ -32,10 +32,10 @@ const tiger = {
 
 
 console.log('rabbit', rabbit)
-console.log('tiger', tiger)
-console.log('herbivore', herbivore)
-console.log('carnivore', carnivore)
-console.log('animal', animal)
+// console.log('tiger', tiger)
+// console.log('herbivore', herbivore)
+// console.log('carnivore', carnivore)
+// console.log('animal', animal)
 
 // prototype chaining
 // rabbit.__proto__
@@ -44,3 +44,34 @@ console.log('animal', animal)
 // {eats: true, sleep: true, walk: ƒ}
 // rabbit.__proto__.__proto__.__proto__
 // null
+
+// TRAVERSING an object
+
+/*
+1. Object.keys
+2. for in loop
+
+
+*/
+
+for(let prop in rabbit) {
+    console.log(prop);
+    //isWhite
+//  eatsMeet
+//  eats
+//  sleep
+//  walk
+
+}
+
+// hasOwnProperty
+
+for(let prop in rabbit) {
+    if(rabbit.hasOwnProperty(prop)) {
+        console.log(prop, 'its own prop')
+    } else {
+        console.log('Inherited > ',prop)
+    }
+}
+
+
