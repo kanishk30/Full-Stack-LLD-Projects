@@ -27,6 +27,44 @@ const transactions = [
 
 //   output
 
+// step1  totalTransactions: Total number of transactions.
+
+const totalTransactions = transactions.length;
+
+// step2 totalAmount: Total amount of all transactions.
+const totalAmount = transactions.reduce((accumulator, currentValue) => accumulator + currentValue.amount, 0)
+
+
+// step3 averageTransactionAmount
+const averageTransactionAmount = totalAmount / totalTransactions
+
+// step4 transactionsPerDay . group transactions by date.'
+const transactionsPerDay = transactions.reduce((acc, transaction) => {
+    if(!acc[transaction.date]) {
+        acc[transaction.date] = []
+    } 
+    acc[transaction.date].push(transaction);
+    return acc;
+}, {})
+
+// step 5 transactionsByCustomer
+
+const transactionsByCustomer = transactions.reduce((acc, transaction) => {
+    if(!acc[transaction.customerId]) {
+        acc[transaction.customerId] = []
+    } 
+    acc[transaction.customerId].push(transaction);
+    return acc;
+}, {})
+
+
+//  {
+//     '2024-03-01' : [{ customerId: 1, amount: 100, date: '2024-03-01' }, { customerId: 2, amount: 150, date: '2024-03-01'} ],
+//     '2024-03-02': [ { customerId: 1, amount: 200, date: '2024-03-02' },
+//     { customerId: 3, amount: 50, date: '2024-03-02' },]
+// }
+
+
 const result = {
     totalTransactions,
     totalAmount,
@@ -34,3 +72,5 @@ const result = {
     transactionsPerDay,
     transactionsByCustomer
   };
+
+  console.log(result)
