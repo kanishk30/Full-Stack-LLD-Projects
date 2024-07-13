@@ -13,5 +13,26 @@ function flattenArray(arr) {
 
     // return an array in flatten form
 
+   return arr.reduce((accArray, curr) => {
+
+        if(Array.isArray(curr)) {
+            // flatted it.
+            const flatValue = flattenArray(curr);
+            console.log('flatValue:  ', flatValue)
+            accArray.push(...flatValue)
+
+            // accArray.push(...flattenArray(curr))
+
+        } else {
+            // push to my output
+            accArray.push(curr)
+        }
+
+        return accArray
+
+    }, [])
+
 
 }
+
+console.log(flattenArray(nestedArray)) // [1, 2, 3, 4, 5, 6]
