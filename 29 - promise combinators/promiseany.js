@@ -22,7 +22,7 @@ function rejectSlowly() {
   });
 }
 
-Promise.any([rejectFast(), rejectSlowly()])
+Promise.any([resolveSlowly(), rejectFast(), rejectSlowly()])
   .then(result => {
       console.log("Result:", result);
   })
