@@ -10,15 +10,38 @@
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 </head>
 <body>
+    <!--  As all the things we will build, will go inside the root. -->
     <div id="root"></div>
 </body>
 
 <script>
     // hello world
-    const heading = document.createElement('h1');
-    heading.innerHTML = 'Hello World';
+    // const heading = document.createElement('h1');
+    // heading.innerHTML = 'Hello World';
+    // const rootEl = document.getElementById('root');
+    // rootEl.appendChild(heading);
+
+
+    // Get the root element. 
     const rootEl = document.getElementById('root');
-    rootEl.appendChild(heading);
+
+    // create element using React.createElement
+    // atleast three arguments are taken by it.
+        // 1. tag name
+        // 2. properties of the element (props)
+        // children of this element.
+    // const heading = React.createElement('h1', null, 'Hello from React');
+    const heading = React.createElement('h1', {
+        style: {color: 'blue', backgroundColor: 'yellow'}
+    }, 'Hello from React');
+
+    // Render the element to the DOM using ReactDOM
+    // ReactDOM takes two arguments:
+        // 1. The react element to render
+        // 2. DOM element where the React element should be mounted
+    ReactDOM.render(heading, rootEl)
+
+
 
     
 </script>
