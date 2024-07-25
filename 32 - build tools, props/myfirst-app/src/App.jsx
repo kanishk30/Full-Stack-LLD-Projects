@@ -12,6 +12,9 @@ function App() {
   const fruits = ['Apple', 'Banana', 'Mango'];
   const person = {name:'Jon', profile: 'Dev'};
 
+  const handleClick = () => {
+    console.log('clicked from parent')
+  }
 
   return (
     <>
@@ -27,7 +30,7 @@ function App() {
       <DisplayData fruits={fruits} person={person}/> */}
 
       {/* <ConditionalRendering isLoggedin={false} username={'John'} /> */}
-      <Button text='props clicked' />
+      <Button text='props clicked' handleClick={handleClick} />
     </>
   )
 }
