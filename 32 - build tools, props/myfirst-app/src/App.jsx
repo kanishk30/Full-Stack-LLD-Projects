@@ -5,6 +5,7 @@ import './App.css'
 import MyComponent from './MyComponent'
 import DisplayData from './DisplayData'
 import ConditionalRendering from './ConditionalRendering'
+import Button from './Button';
 
 function App() {
 
@@ -25,8 +26,8 @@ function App() {
 
       <DisplayData fruits={fruits} person={person}/> */}
 
-      <ConditionalRendering isLoggedin={false} username={'John'} />
-  
+      {/* <ConditionalRendering isLoggedin={false} username={'John'} /> */}
+      <Button text='props clicked' />
     </>
   )
 }
