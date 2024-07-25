@@ -1,7 +1,8 @@
 import React from 'react';
 
-const MyComponent = () => {
-    return <h1>Hello, I am a component.</h1>
+const MyComponent = ({message, user}) => {
+    
+    return <h1>{message} from {user.name}</h1>
 }
 
 export default MyComponent;

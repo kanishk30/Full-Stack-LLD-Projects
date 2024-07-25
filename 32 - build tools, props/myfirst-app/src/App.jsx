@@ -15,12 +15,10 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Hello, I am a component........</h1>
-      <MyComponent /> {/* first use */}
-      <MyComponent /> {/* 2nd use */}
-      <MyComponent />
-      <MyComponent />
-      <MyComponent />
+      <MyComponent message='Hello, I am component1' 
+      user={{name:'Aswatha', profile: 'Dev'}} /> {/* first use */}
+      <MyComponent message='Hi, I am 2nd' user={{name:'Jon', profile: 'Dev'}}  /> {/* 2nd use */}
+      <MyComponent message='Hola! I am last'user={{name:'Snow', profile: 'Dev'}}  />
 
   
     </>
