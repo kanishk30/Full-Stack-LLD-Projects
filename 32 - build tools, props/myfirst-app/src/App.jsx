@@ -3,23 +3,29 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import MyComponent from './MyComponent'
+import DisplayData from './DisplayData'
+import ConditionalRendering from './ConditionalRendering'
 
 function App() {
+
+  const fruits = ['Apple', 'Banana', 'Mango'];
+  const person = {name:'Jon', profile: 'Dev'};
+
+
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <MyComponent message='Hello, I am component1' 
-      user={{name:'Aswatha', profile: 'Dev'}} /> {/* first use */}
-      <MyComponent message='Hi, I am 2nd' user={{name:'Jon', profile: 'Dev'}}  /> {/* 2nd use */}
-      <MyComponent message='Hola! I am last'user={{name:'Snow', profile: 'Dev'}}  />
+     
+      {/* <MyComponent message='Hello, I am component1' 
+      user={{name:'Aswatha', profile: 'Dev'}} /> 
+      <MyComponent message='Hi, I am 2nd' user={{name:'Jon', profile: 'Dev'}}  />
+      <MyComponent message='Hola! I am last'user={{name:'Snow', profile: 'Dev'}}  /> */}
 
+
+      {/* <h2> Props example with Array</h2>
+
+      <DisplayData fruits={fruits} person={person}/> */}
+
+      <ConditionalRendering isLoggedin={false} username={'John'} />
   
     </>
   )
