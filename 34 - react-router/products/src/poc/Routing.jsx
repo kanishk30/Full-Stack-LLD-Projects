@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Routes, Route } from 'react-router-dom';
+import { Link, Routes, Route, useParams } from 'react-router-dom';
 
 function About() {
     return <h2>I am About page</h2>
@@ -13,6 +13,16 @@ function Product() {
 }
 function PageNotFound() {
     return <h2>404. Not found. Please check URL.</h2>
+}
+
+function Users(props) {
+    console.log(props);
+    let {userId } = useParams();
+    // console.log(params);
+
+    // const id = params.userId;
+
+    return <h2>I am user with user id = {userId}</h2>
 }
 
 function Routing() {
@@ -33,6 +43,10 @@ function Routing() {
                             Product
                         </Link>    
                     </li>
+                    <li><Link to={'/users/100'}>
+                            Users
+                        </Link>    
+                    </li>
                 </ul>
             </nav>
 
@@ -41,6 +55,7 @@ function Routing() {
                 <Route path='/about/*' element={<About></About>} />
                 <Route path='/' element={<Home></Home>} />
                 <Route path='/product' element={<Product></Product>} />
+                <Route path='/users/:userId' element={<Users isAdmin={true}></Users>} />
             </Routes>
         </>
     )
