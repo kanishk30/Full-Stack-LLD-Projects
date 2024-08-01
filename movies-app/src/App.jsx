@@ -1,16 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Fragment } from "react"
+
+import Home from "./Components/Home"
+import Navbar from "./Components/Navbar"
+import WatchList from "./Components/WatchList"
+import { Route, Routes } from "react-router-dom"
 import './App.css'
 
+
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    
-    <h1 className="text-3xl font-bold underline uppercase">
-      Hello world!
-    </h1>
+    <Fragment>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Home></Home>} />
+        <Route path='/watchlist' element={<WatchList></WatchList>} />
+      </Routes>
+
+
+    </Fragment>
   )
 }
 
