@@ -1,5 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
+import Pagination from './Pagination'
+import MovieCard from './MovieCard'
+
 
 function Banner() {
   return (
@@ -23,13 +26,31 @@ function Movies() {
     { title: 'Movie5', url: 'https://fastly.picsum.photos/id/10/2500/1667.jpg?hmac=J04WWC_ebchx3WwzbM-Z4_KC_LeLBWr5LZMaAkWkF68', },
   ])
 
+  const [pageNo, setPageNo] = useState(1);
+
+  const handleNext = () => {
+    // increment pageNo.
+    setPageNo(pageNo + 1);
+  }
+
+  const handlePrev = () => {
+    // decrement page no.
+    if (pageNo === 1) {
+      setPageNo(1);
+    } else {
+      setPageNo(pageNo - 1)
+    }
+  }
+
+
   return <>
     <div className='text-2xl font-bold text-center m-4'>
 
       <h2>Trending Movies:</h2>
     </div>
     <div className='flex justify-evenly flex-wrap gap-6'>
-      {movies.map((movie, index) => {
+      {movies.map((movieObj, index) => <MovieCard {...movieObj} index={index} />)}
+      {/* {movies.map((movie, index) => {
         return (
           <div
             className='h-[40vh] w-[200px] bg-center bg-cover rounded-xl flex flex-col justify-between item-end hover:scale-110 duration-200 hover:cursor-pointer'
@@ -43,8 +64,12 @@ function Movies() {
             </div>
           </div>
         )
-      })}
+      })} */}
     </div>
+
+    {/* for pagination:: */}
+    <Pagination handleNext={handleNext} handlePrev={handlePrev} pageNo={pageNo} />
+
   </>
 }
 
