@@ -9,8 +9,10 @@ import axios from 'axios'
 function Movies() {
   const [movies, setMovies] = useState([
   ])
-
   const [pageNo, setPageNo] = useState(1);
+
+  const [watchList, setWatchList] = useState([])
+
 
   useEffect(() => {
     axios.get(`https://api.themoviedb.org/3/trending/movie/day?api_key=e278e3c498ab14e0469bf6d86da17045&language=en-US&page=${pageNo}`)
@@ -44,6 +46,18 @@ function Movies() {
     }
   }
 
+  const addToWatchList = (movieObj) => {
+    const updatedMovies = [...watchList, movieObj]
+    setWatchList(updatedMovies);
+  }
+
+  const removeFromWatchList = movieObj => {
+    const filteredMovies = watchList.filter((watchListMovie) => {
+      return movieObj.id !== watchListMovie.id
+    })
+    setWatchList(filteredMovies);
+  }
+
 
   return <>
     <div className='text-2xl font-bold text-center m-4'>
@@ -51,23 +65,17 @@ function Movies() {
       <h2>Trending Movies:</h2>
     </div>
     <div className='flex justify-evenly flex-wrap gap-6'>
-      {movies.map((movieObj, index) => <MovieCard {...movieObj} index={index} />)}
-      {/* {movies.map((movie, index) => {
-        return (
-          <div
-            className='h-[40vh] w-[200px] bg-center bg-cover rounded-xl flex flex-col justify-between item-end hover:scale-110 duration-200 hover:cursor-pointer'
-            style={{ backgroundImage: `url(${movie.url})` }}
-            key={index}
-          >
-
-
-            <div className='text-white w-full text-center p-2 rounded-lg bg-gray-900/50'>
-              {movie.title}
-            </div>
-          </div>
-        )
-      })} */}
+      {movies.map((movieObj, index) => <MovieCard
+        // {...movieObj}
+        movieObj={movieObj}
+        index={index}
+        watchList={watchList}
+        addToWatchList={addToWatchList}
+        removeFromWatchList={removeFromWatchList}
+      />)}
     </div>
+
+
 
     {/* for pagination:: */}
     <Pagination handleNext={handleNext} handlePrev={handlePrev} pageNo={pageNo} />
