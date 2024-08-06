@@ -32,6 +32,15 @@ function Movies() {
       });
   }, [pageNo])
 
+  useEffect(() => {
+    // on page load, set the watchlist from LS
+    const watchListMovies = localStorage.getItem('movies');
+    if (watchListMovies) {
+      // setWatchList(watchListMovies); // wrong
+      setWatchList(JSON.parse(watchListMovies));
+    }
+  }, [])
+
   const handleNext = () => {
     // increment pageNo.
     setPageNo(pageNo + 1);
@@ -49,6 +58,7 @@ function Movies() {
   const addToWatchList = (movieObj) => {
     const updatedMovies = [...watchList, movieObj]
     setWatchList(updatedMovies);
+    localStorage.setItem('movies', JSON.stringify(updatedMovies))
   }
 
   const removeFromWatchList = movieObj => {
@@ -56,6 +66,7 @@ function Movies() {
       return movieObj.id !== watchListMovie.id
     })
     setWatchList(filteredMovies);
+    localStorage.setItem('movies', JSON.stringify(filteredMovies))
   }
 
 
