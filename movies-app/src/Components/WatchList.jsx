@@ -54,6 +54,14 @@ function WatchList() {
     setWatchList([...sortedOrder])
   }
 
+  const removeFromWatchList = movieObj => {
+    const filteredMovies = watchList.filter((watchListMovie) => {
+      return movieObj.id !== watchListMovie.id
+    })
+    setWatchList(filteredMovies);
+    // localStorage.setItem('movies', JSON.stringify(filteredMovies))
+  }
+
 
   return (
     <>
@@ -107,6 +115,11 @@ function WatchList() {
                   <div>Genre</div>
                 </div>
               </th>
+              <th>
+                <div className="flex">
+                  <div>Delete</div>
+                </div>
+              </th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-100 border-t border-gray-100">
@@ -128,6 +141,7 @@ function WatchList() {
                   <td className="pl-6 py-4">{movie.vote_average}</td>
                   <td className="pl-6 py-4">{movie.popularity}</td>
                   <td className="pl-2 py-4">{getGenreName(movie.genre_ids[0])}</td>
+                  <td className="pl-2 py-4 text-red-500" onClick={() => removeFromWatchList(movie)}>Delete</td>
                 </tr>)
               })}
 
