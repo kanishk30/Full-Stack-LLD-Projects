@@ -16,6 +16,22 @@ function WatchList() {
     }
   }, [])
 
+  const handleAscRatings = () => {
+    console.log('Asc sort');
+    let sortedOrder = watchList.sort((a, b) => a.vote_average - b.vote_average);
+
+    setWatchList([...sortedOrder])
+
+    // [{title, vote_average: 7}, {vote_average: 5}]
+  }
+
+  const handleDescRatings = () => {
+    console.log('Desc sort');
+    let sortedOrder = watchList.sort((a, b) => b.vote_average - a.vote_average);
+
+    setWatchList([...sortedOrder])
+  }
+
 
   return (
     <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
@@ -26,7 +42,9 @@ function WatchList() {
             <th className="px-6 py-4 font-medium text-gray-900">Name</th>
             <th>
               <div className="flex">
+                <i className='fa-solid fa-arrow-up cursor-pointer pr-1' onClick={handleAscRatings}></i>
                 <div>Ratings</div>
+                <i className='fa-solid fa-arrow-down cursor-pointer pl-1' onClick={handleDescRatings}></i>
               </div>
             </th>
             <th>
