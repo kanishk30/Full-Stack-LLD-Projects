@@ -5,6 +5,7 @@ import Navbar from "./Components/Navbar"
 import WatchList from "./Components/WatchList"
 import { Route, Routes } from "react-router-dom"
 import './App.css'
+import WatchListContextWrapper from "./context/WatchListContext"
 
 
 function App() {
@@ -12,10 +13,12 @@ function App() {
   return (
     <Fragment>
       <Navbar />
-      <Routes>
-        <Route path='/' element={<Home></Home>} />
-        <Route path='/watchlist' element={<WatchList></WatchList>} />
-      </Routes>
+      <WatchListContextWrapper>
+        <Routes>
+          <Route path='/' element={<Home></Home>} />
+          <Route path='/watchlist' element={<WatchList></WatchList>} />
+        </Routes>
+      </WatchListContextWrapper>
 
 
     </Fragment>

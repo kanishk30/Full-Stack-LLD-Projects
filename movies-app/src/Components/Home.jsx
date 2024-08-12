@@ -1,19 +1,22 @@
 import React, { useEffect } from 'react'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import Pagination from './Pagination'
 import MovieCard from './MovieCard'
 import Banner from './Banner'
 import axios from 'axios'
-
+import { WatchListContext } from '../context/WatchListContext'
 
 function Movies() {
   const [movies, setMovies] = useState([
   ])
   const [pageNo, setPageNo] = useState(1);
 
-  const [watchList, setWatchList] = useState([])
+  // const [watchList, setWatchList] = useState([])
 
-
+  const { addToWatchList, removeFromWatchList, watchList, setWatchList } = useContext(WatchListContext)
+  console.log(addToWatchList, '[addToWatchList]')
+  console.log(removeFromWatchList, '[removeFromWatchList]')
+  console.log(watchList, '[watchList]')
   useEffect(() => {
     axios.get(`https://api.themoviedb.org/3/trending/movie/day?api_key=e278e3c498ab14e0469bf6d86da17045&language=en-US&page=${pageNo}`)
       .then(function (response) {
@@ -55,19 +58,19 @@ function Movies() {
     }
   }
 
-  const addToWatchList = (movieObj) => {
-    const updatedMovies = [...watchList, movieObj]
-    setWatchList(updatedMovies);
-    localStorage.setItem('movies', JSON.stringify(updatedMovies))
-  }
+  // const addToWatchList = (movieObj) => {
+  //   const updatedMovies = [...watchList, movieObj]
+  //   setWatchList(updatedMovies);
+  //   localStorage.setItem('movies', JSON.stringify(updatedMovies))
+  // }
 
-  const removeFromWatchList = movieObj => {
-    const filteredMovies = watchList.filter((watchListMovie) => {
-      return movieObj.id !== watchListMovie.id
-    })
-    setWatchList(filteredMovies);
-    localStorage.setItem('movies', JSON.stringify(filteredMovies))
-  }
+  // const removeFromWatchList = movieObj => {
+  //   const filteredMovies = watchList.filter((watchListMovie) => {
+  //     return movieObj.id !== watchListMovie.id
+  //   })
+  //   setWatchList(filteredMovies);
+  //   localStorage.setItem('movies', JSON.stringify(filteredMovies))
+  // }
 
 
   return <>
