@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Counter from '../src/normalComponents/Counter'
 import ReduxCounter from '../src/reduxComponents/reduxCounter'
+import TodoRedux from '../src/reduxComponents/TodoRedux'
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
 
       <Counter />
       <ReduxCounter />
+      <TodoRedux />
     </>
   )
 }
