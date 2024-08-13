@@ -6,14 +6,16 @@ import Banner from './Banner'
 import axios from 'axios'
 import { WatchListContext } from '../context/WatchListContext'
 import { useSelector, useDispatch } from 'react-redux'
-import { handleNext, handlePrev } from '../redux/paginationSlice'
+
+import PaginationSlice from "../redux/paginationSlice";
+const paginationActions = PaginationSlice.actions;
 
 function Movies() {
   const [movies, setMovies] = useState([
   ])
   // const [pageNo, setPageNo] = useState(1);
 
-  const { pageNo } = useSelector((state) => state.pagination);
+  const { pageNo } = useSelector((state) => state.PaginationSlice);
   const dispatch = useDispatch();
 
   // const [watchList, setWatchList] = useState([])
@@ -52,11 +54,12 @@ function Movies() {
   const handleNextPage = () => {
     // increment pageNo.
     // setPageNo(pageNo + 1);
-    dispatch(handleNext())
+    dispatch(paginationActions.handleNext());
+
   }
 
-  const handlePreviousPage = () => {
-    dispatch(handlePrev())
+  const handlePrevious = () => {
+    dispatch(paginationActions.handlePrevious());
   }
 
   // const handlePrev = () => {
@@ -103,10 +106,13 @@ function Movies() {
 
 
     {/* for pagination:: */}
+
+
     <Pagination
-      handleNext={handleNextPage}
-      handlePrev={handlePreviousPage}
-      pageNo={pageNo} />
+      nextPageFn={handleNextPage}
+      previousPageFn={handlePrevious}
+      pageNo={pageNo}
+    />
 
   </>
 }

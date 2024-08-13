@@ -1,17 +1,11 @@
 import React from 'react'
-
-const Pagination = ({ handleNext, handlePrev, pageNo }) => {
+function Pagination({ nextPageFn, previosuPageFn, pageNo }) {
     return (
-        <div className='bg-gray-300 p-4 flex justify-center gap-2 w-full mt-6'>
-            <div onClick={handlePrev} className='px-6'>
-                <i class='fa-solid fa-arrow-left'></i>
-            </div>
+        <div className='bg-gray-400 p-4 h-[50px] w-full mt-8 flex justify-center'>
+            <div onClick={previosuPageFn} className='px-8'><i className="fa-solid fa-arrow-left"></i></div>
             <div>{pageNo}</div>
-            <div onClick={handleNext} className='px-6'>
-                <i class='fa-solid fa-arrow-right'></i>
-            </div>
+            <div onClick={nextPageFn} className='px-8'><i className="fa-solid fa-arrow-right"></i></div>
         </div>
     )
 }
-
-export default Pagination
+export default Pagination;

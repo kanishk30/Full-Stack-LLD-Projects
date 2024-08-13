@@ -1,12 +1,9 @@
-import { configureStore } from '@reduxjs/toolkit'
-
-import paginationSliceReducer from './paginationSlice';
-
+import { configureStore } from '@reduxjs/toolkit';
+import PaginationSlice from './paginationSlice';
+// adding async middlewares
 const store = configureStore({
     reducer: {
-        pagination: paginationSliceReducer
+        PaginationSlice: PaginationSlice.reducer
     }
 })
-
-
 export default store;

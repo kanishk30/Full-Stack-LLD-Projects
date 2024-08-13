@@ -1,22 +1,23 @@
-import { createSlice } from '@reduxjs/toolkit';
-
+// to create a slice -> redux;
+import { createSlice } from "@reduxjs/toolkit";
 const PaginationSlice = createSlice({
-    name: 'paginationSlice',
+    name: "paginationSlice",
+    // intinal state value
     initialState: {
-        pageNo: 1
+        pageNo: 1,
     },
+    // functions to update your state 
     reducers: {
-        handleNext: state => {
+        handleNext: (state) => {
             state.pageNo = state.pageNo + 1
         },
-        handlePrev: state => {
-            if (state.pageNo === 1) {
+        // go back handler
+        handlePrevious: (state) => {
+            if (state.pageNo == 1) {
                 return;
             }
             state.pageNo = state.pageNo - 1
-        },
+        }
     }
-})
-
-export const { handleNext, handlePrev } = PaginationSlice.actions;
-export default PaginationSlice.reducer;
+});
+export default PaginationSlice;
