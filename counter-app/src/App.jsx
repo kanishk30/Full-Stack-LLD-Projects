@@ -5,16 +5,17 @@ import './App.css'
 import Counter from '../src/normalComponents/Counter'
 import ReduxCounter from '../src/reduxComponents/reduxCounter'
 import TodoRedux from '../src/reduxComponents/TodoRedux'
+import User from './reduxComponents/User'
 
 function App() {
 
 
   return (
     <>
-
-      <Counter />
+      <User />
+      {/* <Counter />
       <ReduxCounter />
-      <TodoRedux />
+      <TodoRedux /> */}
     </>
   )
 }
