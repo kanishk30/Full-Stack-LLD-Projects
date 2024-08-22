@@ -1,3 +1,4 @@
 .DS_Store
 testing/node_modules
 ./performance/node_modules/*
+./mc-questions/node_modules/*

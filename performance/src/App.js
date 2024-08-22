@@ -6,7 +6,7 @@ import React, { lazy, Suspense } from 'react';
 import { Link } from "react-router-dom"
 import Memoexample from './Components/Memoexample';
 import Callbackexample from './Components/Callbackexample';
-
+import Ref from './Components/Ref';
 // import HomePage from './Components/HomePage';
 // import About from './Components/About';
 // import Contact from './Components/Contact';
@@ -14,6 +14,7 @@ import Callbackexample from './Components/Callbackexample';
 const HomePage = lazy(() => import('./Components/HomePage'))
 const AboutPage = lazy(() => import('./Components/About'))
 const ContactPage = lazy(() => import('./Components/Contact'))
+
 
 function App() {
 
@@ -71,6 +72,7 @@ function App() {
 
         <Memoexample />
         <Callbackexample />
+        <Ref />
 
       </div>
     </BrowserRouter >
