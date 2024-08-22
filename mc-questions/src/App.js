@@ -10,8 +10,8 @@ function App() {
   const { isVisible, show, hide, toggle } = useVisibility(false)
   return (
     <>
-      {/* <StopWatch />
-      <ImageCarousel /> */}
+      <StopWatch />
+      <ImageCarousel />
       <button onClick={show}>Show Modal</button>
       <button onClick={toggle}>Toggle Modal</button>
       <button onClick={hide}>Hide Modal</button>
