@@ -9,13 +9,21 @@ import Modal from './Modal';
 import ClassReact from './classReact';
 import TodoList from './TodoList';
 import TodoList2 from './TodoList2';
+import withLoading from './HOC';
+import DataComponent from './DataComponent';
+
+const Enhanced = withLoading(DataComponent);
 
 function App() {
-  const { isVisible, show, hide, toggle } = useVisibility(false)
+  // const { isVisible, show, hide, toggle } = useVisibility(false)
+
+
+
   return (
     <>
-      <TodoList />
-      <TodoList2 />
+      <Enhanced data='Some data' />
+      {/* <TodoList />
+      <TodoList2 /> */}
       {/* <ClassReact name='Scaler' />
       <StopWatch />
       <ImageCarousel />
